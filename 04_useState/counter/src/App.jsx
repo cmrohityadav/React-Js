@@ -16,6 +16,9 @@ function App() {
 
 
 
+
+
+
   //usestate
 
  let [number,updateNumber]= useState(0)
@@ -24,12 +27,24 @@ function App() {
 
    updateNumber(number+1)
    console.log("click",number)
+
+   //interview
+  //  updateNumber(number+1)
+  //  updateNumber(number+1)
+
+  //  updateNumber(number+1)
+ updateNumber((prevCounter)=> prevCounter+1)
+
+
+
   }
 
   const remValue=()=>{
 
     updateNumber(number-1)
    console.log("click",number)
+
+   
 
   }
   return (
