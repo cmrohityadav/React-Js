@@ -1,4 +1,5 @@
 import React from 'react'
+import styles from "./Item.module.css"
 
 function Item(props) {
     // console.log(props);
@@ -6,7 +7,8 @@ function Item(props) {
     // console.log(foodItem)
     return (
         <>
-            <li  className="list-group-item">{props.foodItem}</li>
+            <li  className= {styles.kgItem}>
+            <span className={styles.kgSpan} >{props.foodItem}</span></li>
         </>
     )
 }

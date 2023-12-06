@@ -2,6 +2,7 @@ import React from 'react'
 import "bootstrap/dist/css/bootstrap.min.css"
 import FoodItem from './components/FoodItem'
 import ErrorMsg from './components/ErrorMsg'
+import "./App.css"
 
 
 function App() {
@@ -10,7 +11,7 @@ function App() {
   // const foodItem=[]
   return (
     <>
-      <h1>
+      <h1 className='foodHeading'>
         Healthy Drink
       </h1>
       <ErrorMsg pilo={foodItem}/>
