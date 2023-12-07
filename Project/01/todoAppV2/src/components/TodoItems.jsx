@@ -1,13 +1,14 @@
 import React from 'react'
 import TodoItem from './TodoItem'
 import AddTODO from './AddTODO'
+import style from "./TodoItems.module.css"
 
 function TodoItems({ todoItems }) {
     // console.log(todoItems)
     return (
         <>
 
-            <div className="container text-center">
+            <div className={style.itemContainer}>
 
 
                 <AddTODO />
