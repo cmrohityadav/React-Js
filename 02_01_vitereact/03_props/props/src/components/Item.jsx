@@ -1,7 +1,7 @@
 import React from 'react'
 
 function Item(props) {
-    // console.log(props);
+    console.log(props);
     // let {foodItem}=props;
     // console.log(foodItem)
     return (

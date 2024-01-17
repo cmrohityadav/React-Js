@@ -3,7 +3,7 @@ import styles from "./Item.module.css"
 function Item({foodItem}) {
     // console.log(props);
     // let {foodItem}=props;
-    console.log(foodItem)
+    // console.log(foodItem)
    
     // const handleBuy=(foodItem)=>{
     //     console.log(`clicked ${foodItem}`)
