@@ -1,34 +1,41 @@
-import React, { useState } from 'react'
+import React, { useState,useRef } from 'react'
 import { FaCalendarPlus } from "react-icons/fa6";
+
+
 function AddTODO({ onNewItem }) {
 
   const [todoName, setTodoName] = useState("");
   const [dueDate, setDueDate] = useState("");
 
-  const handleNameChange=(event)=>{
+  const handleNameChange = (event) => {
     // console.log(event)
     // console.log(event.target.value)
     setTodoName(event.target.value)
   };
-  const handleDateChange=(event)=>{
+  const handleDateChange = (event) => {
     // console.log(event.target.value)
     setDueDate(event.target.value)
   };
-const handleAddButtonClick=()=>{
-  onNewItem(todoName,dueDate);
-  // after add button , we have make screen blank for new todolist
-  setDueDate("");
-  setTodoName("");
-}
+  const handleAddButtonClick = (event) => {
+    onNewItem(todoName, dueDate);
+    // after add button , we have make screen blank for new todolist
+    setDueDate("");
+    setTodoName("");
+    event.preventDefault();
+    console.log(event)
+  }
 
   return (
     <>
 
-      <div className="row">
+      <form 
+        onSubmit={handleAddButtonClick}
+       className="row">
+      
         <div className="col-6">
           <input type='text' placeholder='Writer TODO Here'
             onChange={handleNameChange}
-    value={todoName}
+            value={todoName}
 
           >
 
@@ -39,21 +46,25 @@ const handleAddButtonClick=()=>{
           <input type="date" name="" id=""
             onChange={handleDateChange}
             value={dueDate}
-           />
+          />
         </div>
 
 
         <div className="col-2">
-          <button type="button" className="btn btn-success"
+          <button type="submit" className="btn btn-success"
             // onClick={() => onNewItem("a", "b")}
-            onClick={handleAddButtonClick}
-          >  
-          {/* ADD */}
+            // onSubmit={handleAddButtonClick}
+            // onClick={handleAddButtonClick}
 
-          <FaCalendarPlus />
+
+          >
+            {/* ADD */}
+
+            <FaCalendarPlus />
           </button>
         </div>
-      </div>
+        
+      </form>
     </>
   )
 }

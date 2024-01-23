@@ -1,21 +1,23 @@
-import React, { useState } from 'react'
-import { FaCalendarPlus } from "react-icons/fa6";
-function AddTODO({ onNewItem }) {
+import React, { useContext, useState } from 'react'
+import { TodoItemsContext } from '../store/todoItemsStore';
+
+function AddTODO() {
+  const {addNewItem}= useContext(TodoItemsContext)
+    
 
   const [todoName, setTodoName] = useState("");
   const [dueDate, setDueDate] = useState("");
 
   const handleNameChange=(event)=>{
-    // console.log(event)
-    // console.log(event.target.value)
+    
     setTodoName(event.target.value)
   };
   const handleDateChange=(event)=>{
-    // console.log(event.target.value)
+    
     setDueDate(event.target.value)
   };
 const handleAddButtonClick=()=>{
-  onNewItem(todoName,dueDate);
+  addNewItem(todoName,dueDate);
   // after add button , we have make screen blank for new todolist
   setDueDate("");
   setTodoName("");
@@ -47,11 +49,7 @@ const handleAddButtonClick=()=>{
           <button type="button" className="btn btn-success"
             // onClick={() => onNewItem("a", "b")}
             onClick={handleAddButtonClick}
-          >  
-          {/* ADD */}
-
-          <FaCalendarPlus />
-          </button>
+          >Add</button>
         </div>
       </div>
     </>
