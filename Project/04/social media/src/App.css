@@ -7,3 +7,14 @@
 .content{
   width: 100%;
 }
+.post-card{
+  margin: 20px 50px;
+
+}
+.hasgtag{
+  margin: 0px 3px;
+}
+.create-post{
+  width: 80%;
+  margin: 10%;
+}

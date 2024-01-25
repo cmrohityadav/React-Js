@@ -2,24 +2,42 @@ import React from 'react'
 
 function CreatePost() {
   return (
-   <>
-    <form>
-  <div className="mb-3">
-    <label htmlFor="exampleInputEmail1" className="form-label">Email address</label>
-    <input type="email" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"/>
-    <div id="emailHelp" className="form-text">We'll never share your email with anyone else.</div>
-  </div>
-  <div className="mb-3">
-    <label htmlFor="exampleInputPassword1" className="form-label">Password</label>
-    <input type="password" className="form-control" id="exampleInputPassword1"/>
-  </div>
-  <div className="mb-3 form-check">
-    <input type="checkbox" className="form-check-input" id="exampleCheck1"/>
-    <label className="form-check-label" htmlFor="exampleCheck1">Check me out</label>
-  </div>
-  <button type="submit" className="btn btn-primary">Submit</button>
-</form>
-   </>
+    <>
+      <form className="create-post">
+
+        <div className="mb-3">
+          <label htmlFor="userId" className="form-label">Enter your userID here</label>
+          <input type="text" className="form-control" id="userId" placeholder='your user id' aria-describedby="emailHelp" />
+
+        </div>
+        <div className="mb-3">
+          <label htmlFor="title" className="form-label">Post Title</label>
+          <input type="text" className="form-control" id="title" placeholder='How are you feeling today' aria-describedby="emailHelp" />
+
+        </div>
+
+
+        <div className="mb-3">
+          <label htmlFor="body" className="form-label">Post Content</label>
+          <textarea rows={4} type="text" className="form-control" id="body" placeholder='tell us more about it' aria-describedby="emailHelp" />
+
+        </div>
+        <div className="mb-3">
+          <label htmlFor="reactions" className="form-label">Number of reactions</label>
+          <input type="number" className="form-control" id="reactions" placeholder='How many people recated to this post' aria-describedby="emailHelp" />
+
+        </div>
+
+        <div className="mb-3">
+          <label htmlFor="tags" className="form-label">Enter your tags</label>
+          <input type="text" className="form-control" id="tags" placeholder='please enter tag using space' aria-describedby="emailHelp" />
+
+        </div>
+
+
+        <button type="submit" className="btn btn-primary">Post</button>
+      </form>
+    </>
   )
 }
 
