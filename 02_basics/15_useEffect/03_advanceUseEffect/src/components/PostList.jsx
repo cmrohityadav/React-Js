@@ -12,8 +12,9 @@ function PostList() {
   useEffect(() => {
     setFetching(true);
     console.log('fetching started');
-    
-    fetch('https://dummyjson.com/posts')
+    const controller=new AbortController();
+    const signal=controller.signal;
+    fetch('https://dummyjson.com/posts',{signal})
       .then(res => res.json())
       .then((data) => {
          addIntialPosts(data.posts) ;
@@ -23,7 +24,8 @@ function PostList() {
         console.log('fetch ended')
 
         return ()=>{
-          console.log("cleaning up useEffect")
+          console.log("cleaning up useEffect");
+          controller.abort();
         }
   }, [])
 
