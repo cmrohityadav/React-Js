@@ -11,7 +11,8 @@ const counterReducer=(store=INITIAL_VALUE,action)=>{
     }else if(action.type==='DECREAMENT'){
         return {counter: store.counter-1,privacy: !store.privacy}
     }else if(action.type==='ADD'){
-        return {counter:store.counter+Number(action.payload.num),privacy: !store.privacy }
+        return {...store,counter:store.counter+Number(action.payload.num)}
+        // return {counter:store.counter+Number(action.payload.num),privacy: !store.privacy }
     }else if(action.type==='SUB'){
         return {...store,counter: store.counter-Number(action.payload.num)}
     }else if(action.type==='PRIVACY_TOGGLE'){
