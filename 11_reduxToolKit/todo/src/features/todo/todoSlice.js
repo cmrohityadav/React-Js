@@ -1,10 +1,13 @@
+// step 3
 import {createSlice, nanoid } from '@reduxjs/toolkit';
 
+
+// step 4
 const initialState = {
-    todos: [{id: 1, text: "Hello world"}]
+    todos: []
 }
 
-
+// step 5
 
 export const todoSlice = createSlice({
     name: 'todo',
