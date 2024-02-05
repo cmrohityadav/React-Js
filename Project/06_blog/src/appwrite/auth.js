@@ -53,7 +53,7 @@ async getCurrentUser(){
     return null
 }
 
-async logoout(){
+async logout(){
     try {
         await this.account.deleteSessions();
     } catch (error) {

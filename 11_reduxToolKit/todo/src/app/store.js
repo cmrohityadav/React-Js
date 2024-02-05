@@ -4,5 +4,7 @@ import todoRohit from '../features/todo/todoSlice';
 // step 2
 export const store = configureStore({
 
-    reducer: todoRohit
+    reducer:{
+        todo:todoRohit
+    }
 })
