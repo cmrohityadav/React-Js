@@ -60,3 +60,43 @@ function Profile(props){
 Profile({infoName,age})
 ```
 
+
+# CSS
+## external css
+```jsx
+import './xyz.css'
+function Profile(){
+    
+    return(
+        <>
+        <h1 className='hello'>Child hu</h1>
+        </>
+    )
+}
+
+```
+
+```css
+.hello{
+    color:'red',
+}
+
+```
+
+## Modular css
+
+```jsx
+import styles from "./Item.module.css";
+import './styles.css';
+
+function Profile() {
+    return (
+        <h1 className={`${styles.header} ${styles.large} anyCSSClass text-blue-500 text-xl`}
+        style={{ color: 'blue', fontSize: '24px' }}
+        >
+            Child hu
+        </h1>
+    );
+}
+
+```
