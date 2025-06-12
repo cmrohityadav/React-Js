@@ -9,3 +9,4 @@ to start vite project: npm run dev
 
 ##rules
 components name as well as function name should be in capital
+
