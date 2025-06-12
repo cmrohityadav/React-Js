@@ -25,4 +25,38 @@ export default function Bio() {
 
 ```
 
-# 
+# Props
+- prop is object 
+- destruture it
+```jsx
+// parent to child
+
+// parent component
+function Parent(){
+    return(
+        const name="rohit"
+        <>
+         <h1>Hello</h1>
+         <Profile infoName={name} age={20} />
+        </>
+    )
+   
+
+}
+
+// child
+function Profile(props){
+    cosole.log(props)
+    return(
+        <>
+        <h1>Child hu</h1>
+        </>
+    )
+}
+
+// output: {infoname:rohit,age:20
+
+// destructure
+Profile({infoName,age})
+```
+
