@@ -100,3 +100,35 @@ function Profile() {
 }
 
 ```
+
+# Hooks
+- Hooks are special functions that let you "hook into" React features—like state and lifecycle methods—from function components
+## Rules
+- Only call Hooks at the top level (not inside loops, conditions, or nested functions).
+```jsx
+//wrong
+function MyComponent() {
+  if (true) {
+    const [count, setCount] = useState(0); // ❌
+  }
+}
+
+//right
+function MyComponent() {
+  const [count, setCount] = useState(0); // ✅
+}
+
+```
+
+- Only call Hooks from React functions (functional components or custom Hooks).
+```jsx
+
+function regularFunction() {
+  const [x, setX] = useState(0); // ❌
+}
+
+function useCustomHook() {
+  const [x, setX] = useState(0); // ✅
+  return [x, setX];
+}
+```
