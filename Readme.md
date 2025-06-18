@@ -132,3 +132,124 @@ function useCustomHook() {
   return [x, setX];
 }
 ```
+# context api
+- React's Context API is a way to share data globally across components without having to pass props manually at every level (prop drilling)
+
+```js
+// GlobalContext.js
+
+import React, { createContext, useState } from "react";
+
+// Create Context
+export const GlobalContext = createContext();
+
+```
+
+```jsx
+// GlobalContextProvider.jsx
+
+import React, { useState } from "react";
+import { GlobalContext } from "./GlobalContext"; // Import the context
+
+export const GlobalContextProvider = ({ children }) => {
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+
+  const login = () => setIsLoggedIn(true);
+  const logout = () => setIsLoggedIn(false);
+
+  return (
+    <GlobalContext.Provider value={{ isLoggedIn, login, logout }}>
+      {children}
+    </GlobalContext.Provider>
+  );
+};
+
+
+```
+
+```jsx
+// index.jsx or main.jsx
+
+import React from "react";
+import ReactDOM from "react-dom/client";
+import App from "./App";
+import { GlobalContextProvider } from "./context/GlobalContextProvider";
+
+const root = ReactDOM.createRoot(document.getElementById("root"));
+root.render(
+  <GlobalContextProvider>
+    <App />
+  </GlobalContextProvider>
+);
+
+
+```
+
+```jsx
+// App.jsx
+
+import React from "react";
+import Navbar from "./components/Navbar";
+import Login from "./components/Login";
+
+function App() {
+  return (
+    <div>
+      <Navbar />
+      <hr />
+      <Login />
+    </div>
+  );
+}
+
+export default App;
+```
+
+```jsx
+// Navbar.jsx
+
+import React, { useContext } from "react";
+import { GlobalContext } from "../context/GlobalContext";
+
+const Navbar = () => {
+  const { isLoggedIn, logout } = useContext(GlobalContext);
+
+  return (
+    <nav>
+      <h1>My App</h1>
+      {isLoggedIn ? (
+        <button onClick={logout}>Logout</button>
+      ) : (
+        <span>Please log in</span>
+      )}
+    </nav>
+  );
+};
+
+export default Navbar;
+
+
+```
+
+
+```jsx
+// Login.js
+
+import React, { useContext } from "react";
+import { GlobalContext } from "../context/GlobalContext";
+
+const Login = () => {
+  const { login } = useContext(GlobalContext);
+
+  return (
+    <div>
+      <h2>Login Page</h2>
+      <button onClick={login}>Login</button>
+    </div>
+  );
+};
+
+export default Login;
+
+```
+
